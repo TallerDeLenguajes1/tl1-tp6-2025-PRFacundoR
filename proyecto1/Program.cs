@@ -65,7 +65,7 @@ do
             if (float.TryParse(num1, out a) && float.TryParse(num2, out b))
             {
                 resultado = a + b;
-                Console.WriteLine("El resultado de la operacion " + opcion + "es " + resultado);
+                Console.WriteLine("El resultado de la operacion " + opcion + " es " + resultado);
             }
             else
             {
