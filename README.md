@@ -25,3 +25,54 @@ Evitar escapes de caracteres (excepto "" para comillas dobles).
 
 $ - Interpolated string
 Permite insertar variables dentro de la cadena con {}.
+
+
+¿Qué son y cómo funcionan las expresiones regulares?
+Las expresiones regulares (también llamadas regex, por regular expressions) son patrones utilizados para buscar, validar, extraer o reemplazar texto dentro de cadenas. Funcionan describiendo con símbolos especiales una "forma" o estructura de texto, como por ejemplo un correo electrónico, una fecha, o una matrícula.
+
+El motor de expresiones regulares interpreta el patrón y analiza una cadena carácter por carácter para determinar si se cumple o no la forma definida.
+
+¿Funcionan únicamente en C#?
+No, las expresiones regulares son una herramienta universal, no exclusiva de C#. Se utilizan en muchísimos lenguajes y entornos, incluyendo:
+
+Python (re)
+
+Java (java.util.regex)
+
+JavaScript (RegExp)
+
+PHP (preg_match)
+
+Bash/Shell (grep, sed, awk)
+
+y editores de texto como VS Code, Notepad++, etc.
+
+El sintaxis base es similar en todos, aunque puede haber pequeñas diferencias entre motores.
+
+EJEMPLOS
+
+Validar datos: asegurarse de que un texto cumple un formato, por ejemplo:
+
+Correos electrónicos (^[^@\s]+@[^@\s]+\.[^@\s]+$)
+
+Contraseñas con al menos 1 número, 1 mayúscula y 8 caracteres
+
+Números de teléfono
+
+
+Extraer información de un texto:
+
+Encontrar todas las fechas en un documento
+
+Extraer URLs de una página HTML
+
+Obtener los números de un texto mezclado
+
+
+Buscar y reemplazar patrones complejos:
+
+Cambiar todos los formatos de fecha de dd-mm-yyyy a yyyy/mm/dd
+
+Reemplazar múltiples espacios por uno solo
+
+Eliminar etiquetas HTML

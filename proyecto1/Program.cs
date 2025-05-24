@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.Reflection.Emit;
+using System.Text.RegularExpressions;
 
 Console.WriteLine("Hello, World!");
 /*Console.WriteLine("Hello, World!");
@@ -356,3 +357,18 @@ if (!int.TryParse(partes[0], out int op1) || !int.TryParse(partes[1], out int op
 
         Console.WriteLine($"La operación {op1} {operadorUsado} {op2} = {resultado}");
     
+
+    Console.WriteLine("Ingrese una dirección web:");
+        string url = Console.ReadLine();
+
+        // Patrón básico para URL: http o https, opcional www, dominio y extensión
+        string patronUrl = @"^(https?:\/\/)?(www\.)?[a-zA-Z0-9\-]+\.[a-zA-Z]{2,}(\S*)?$";
+
+        if (Regex.IsMatch(url, patronUrl))
+        {
+            Console.WriteLine("La cadena ingresada es una dirección web válida.");
+        }
+        else
+        {
+            Console.WriteLine("La cadena NO es una dirección web válida.");
+        }
