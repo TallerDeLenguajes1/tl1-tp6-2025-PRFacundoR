@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System;
 using System.Reflection.Emit;
 
 Console.WriteLine("Hello, World!");
@@ -206,7 +207,7 @@ do
             num2 = Console.ReadLine();
             if (float.TryParse(num1, out a) && float.TryParse(num2, out b))
             {
-                resultado = (float)Math.MaxMagnitude(a,b);
+                resultado = (float)Math.MaxMagnitude(a, b);
                 Console.WriteLine("El resultado de la operacion " + opcion + "es " + resultado);
             }
             else
@@ -220,8 +221,9 @@ do
             num2 = Console.ReadLine();
             if (float.TryParse(num1, out a) && float.TryParse(num2, out b))
             {
-                resultado = (float)Math.MaxMagnitude(a,b);
+                resultado = (float)Math.MaxMagnitude(a, b);
                 Console.WriteLine("El resultado de la operacion " + opcion + "es " + resultado);
+
             }
             else
             {
@@ -231,4 +233,126 @@ do
     }
 
 
-} while (opcion!="salir");
+} while (opcion != "salir");
+
+
+    Console.WriteLine("ingrese una cadena");
+    string cadena1 = Console.ReadLine();
+    int largo = cadena1.Length;
+    Console.WriteLine("El largo de la cadena es " + largo);
+
+    Console.WriteLine("ingrese otra cadena");
+    string cadena2 = Console.ReadLine();
+    Console.WriteLine("la concatenacion de las dos cadenas es " + string.Concat(cadena1, cadena2));
+
+
+string inicio;
+do
+{
+    Console.WriteLine("ingrese inicio y fin de una cadena, si desea salir escriba 'salir'");
+    inicio = Console.ReadLine();
+    string final = Console.ReadLine();
+
+    
+
+    if (int.TryParse(inicio, out int Inicio) && int.TryParse(final, out int Final) && Inicio + Final <= cadena1.Length )
+    {
+        Console.WriteLine("una subcadena de la primera oracion es " + cadena1.Substring(Inicio, Final));
+    } else
+        {
+            Console.WriteLine("Las posiciones están fuera de rango.");
+        }
+} while (inicio != "salir");
+
+
+
+Console.WriteLine("funcionanmiento de foreach");
+foreach (char c in cadena2)
+{
+    Console.WriteLine(c);
+}
+
+
+Console.WriteLine("Ingrese una palabra para buscar en la oracion");
+
+string palabra = Console.ReadLine();
+
+if (cadena1.Contains(palabra))
+{
+    Console.WriteLine("si esta la palabra " + palabra + " en la cadena: " + cadena1);
+}
+else
+{
+    Console.WriteLine(" NO esta la palabra " + palabra + " en la cadena: " + cadena1);
+
+}
+
+Console.WriteLine("La cadena en mayuscula es " + cadena2.ToUpper());
+Console.WriteLine("La cadena en minuscula es " + cadena2.ToLower());
+
+
+
+
+
+Console.WriteLine("uso de split, ingrese una operacion");
+
+string cadena3 = Console.ReadLine();
+string[] delimitador = ["+", "-", "/", "%", "**", "*"];
+string operadorUsado = null;
+
+string[] partes = cadena3.Split(delimitador, StringSplitOptions.RemoveEmptyEntries);
+
+foreach (string op in delimitador)
+{
+     if (cadena3.Contains(op))
+        {
+            operadorUsado = op;
+            break;
+        }
+}
+
+if (operadorUsado == null)
+{
+    Console.WriteLine("no existe ese operador");
+}
+
+if (!int.TryParse(partes[0], out int op1) || !int.TryParse(partes[1], out int op2))
+{
+            Console.WriteLine("No se pudo convertir los operandos a números.");
+            return;
+}
+
+      
+
+        switch (operadorUsado)
+        {
+            case "+":
+                resultado = op1 + op2;
+                break;
+            case "-":
+                resultado = op1 - op2;
+                break;
+            case "*":
+                resultado = op1 * op2;
+                break;
+            case "/":
+                if (op2 == 0)
+                {
+                    Console.WriteLine("Error: división por cero.");
+                    return;
+                }
+                resultado = op1 / op2;
+                break;
+            case "%":
+                resultado = op1 % op2;
+                break;
+            case "**":
+                resultado = (int)Math.Pow(op1, op2);
+                break;
+            default:
+                Console.WriteLine("Operador no reconocido.");
+                return;
+        }
+
+        Console.WriteLine($"La operación {op1} {operadorUsado} {op2} = {resultado}");
+    
